@@ -21,9 +21,9 @@
     
     
     //SQL connection
-    $dsn = 'mysql:dbname=databaselink/name;host=localhost';
-    $dbusername ="dbusername";
-    $dbpassword='dbpassword';
+    $dsn = 'mysql:dbname=tt**********com;host=localhost';
+    $dbusername ="t**********o";
+    $dbpassword='***********';
     $tablename = 'mission_4_db';
     
     //try catch the error connecting database
@@ -46,12 +46,6 @@
     }
     
     
-    
-    /*/count row
-     $c_sql ="SELECT * from $tablename";
-     $c_result = $pdo->query($c_sql);
-     $r_count = $c_result->rowCount() + 1;
-     */
     //check the password
     if(!empty($e_password) && $e_password=='hell'){
         //------------------------------------------logic ------------------------------//
@@ -60,6 +54,7 @@
             //edite written data
             $sql = "update $tablename set name='$name', comment='$comment' where id=$rw_num";
             $result = $pdo -> query($sql);
+            $rw_num = null;
             
         }else
             //edit data
@@ -115,7 +110,7 @@
         //echo "<center>";
         foreach($s_result as $row){
             echo $row['id'].'|'.$row['name'].'|'.$row['comment'].'|'.$row['date']
-            ."<hr width=".'"30%"'.">";
+            ."<hr>";
         }
         //echo "</center>";
         echo $r_count;
@@ -136,14 +131,14 @@
 <input type="submit" value="送信">
 </form>
 <hr>
-<h5>削除よする番号を入力</h5>
+<h5>削除機能</h5>
 <form  action="mission_4.php" method="post">
 <input type="text" name="d_name" placeholder="編集番号を入力"><br>
 <input type="password" name="password" placeholder="パースワードを入力"><br>
 <input type="submit" value="削除"><br>
 </form>
 <hr>
-<h5>編集よする番号を入力</h5>
+<h5>編集機能</h5>
 <form action="mission_4.php" method="post">
 <input type="text" name="e_name" placeholder="削除番号を入力"><br>
 <input type="password" name="password" placeholder="パースワードを入力"><br>
